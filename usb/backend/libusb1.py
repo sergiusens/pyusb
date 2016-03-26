@@ -285,7 +285,7 @@ def _load_library(find_library=None):
                 ('usb-1.0', 'libusb-1.0', 'usb'),
                 'cygusb-1.0.dll', 'Libusb 1',
                 win_cls=win_cls,
-                find_library=find_library, check_symbols=('libusb_init',))
+                find_library=find_library)
 
 def _setup_prototypes(lib):
     # void libusb_set_debug (libusb_context *ctx, int level)
