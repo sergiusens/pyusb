@@ -1251,11 +1251,9 @@ def find(find_all=False, backend = None, custom_match = None, **args):
 
     if backend is None:
         import usb.backend.libusb1 as libusb1
-        import usb.backend.libusb0 as libusb0
-        import usb.backend.openusb as openusb
 
-        for m in (libusb1, openusb, libusb0):
-            backend = m.get_backend()
+        for m in (libusb1, ):
+            backend = m.get_backend(find_library=lambda x: "/usr/lib/libusb-1.0.so")
             if backend is not None:
                 _logger.info('find(): using backend "%s"', m.__name__)
                 break
